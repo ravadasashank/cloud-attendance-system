@@ -39,108 +39,68 @@ cloud-attendance-system/
     └── README.md      # Additional documentation
 ```
 
-![Project Architecture: Cloud Attendance System—End-to-End Stack and File Structure](ChatGPT-Image-Oct-21-2025-04_33_07-PM.jpg)
+![Cloud Attendance System Architecture](architechture.png)
+*Project Architecture: Cloud Attendance System—End-to-End Stack and File Structure*
 
-## Prerequisites
+## Getting Started
+
+### Prerequisites
 - Node.js (v14 or higher)
 - PostgreSQL (v12 or higher)
-- AWS Account with appropriate permissions
+- AWS Account
 - Terraform (v1.0 or higher)
-- npm or yarn package manager
 
-## Installation & Setup
+### Installation
 
-### Backend Setup
-1. Navigate to the backend directory:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/cloud-attendance-system.git
+   cd cloud-attendance-system
+   ```
+
+2. Install backend dependencies:
    ```bash
    cd backend
-   ```
-
-2. Install dependencies:
-   ```bash
    npm install
    ```
 
-3. Create a `.env` file with your database configuration:
-   ```env
-   DB_HOST=localhost
-   DB_PORT=5432
-   DB_NAME=attendance_db
-   DB_USER=your_username
-   DB_PASSWORD=your_password
-   PORT=3001
-   ```
-
-4. Start the backend server:
+3. Install frontend dependencies:
    ```bash
-   npm start
-   ```
-
-### Frontend Setup
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-
-2. Install dependencies:
-   ```bash
+   cd ../frontend
    npm install
    ```
 
-3. Create a `.env` file:
-   ```env
-   REACT_APP_API_URL=http://localhost:3001/api
-   ```
+4. Configure environment variables:
+   Create `.env` files in both backend and frontend directories (see `.env.example` files)
 
-4. Start the development server:
-   ```bash
-   npm start
-   ```
-
-### Infrastructure Deployment
-1. Navigate to the infra directory:
+5. Set up infrastructure:
    ```bash
    cd infra
-   ```
-
-2. Initialize Terraform:
-   ```bash
    terraform init
-   ```
-
-3. Review the planned changes:
-   ```bash
    terraform plan
-   ```
-
-4. Apply the infrastructure:
-   ```bash
    terraform apply
    ```
 
-## API Endpoints
-- `POST /api/attendance` - Record new attendance entry
-- `GET /api/attendance` - Retrieve attendance records
-- `GET /api/attendance/:id` - Get specific attendance record
-- `PUT /api/attendance/:id` - Update attendance record
-- `DELETE /api/attendance/:id` - Delete attendance record
-- `GET /api/users` - List all users
-- `POST /api/users` - Create new user
+### Running the Application
 
-## AWS Architecture
-The application uses the following AWS services:
-- **EC2**: Application hosting
-- **RDS**: PostgreSQL database
-- **VPC**: Network isolation
-- **Security Groups**: Network access control
+1. Start the backend server:
+   ```bash
+   cd backend
+   npm start
+   ```
 
-## Testing
-Run the test suite:
-```bash
-npm test
-```
+2. Start the frontend development server:
+   ```bash
+   cd frontend
+   npm start
+   ```
+
+3. Access the application at `http://localhost:3000`
 
 ## Deployment
+
+### Production Build
+
 1. Build the frontend:
    ```bash
    cd frontend
@@ -156,6 +116,7 @@ npm test
 ## Troubleshooting
 
 ### Common Issues
+
 #### Database connection errors
 - Verify database credentials in `.env` file
 - Ensure port 3001 is not already in use
